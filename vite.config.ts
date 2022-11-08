@@ -16,6 +16,10 @@ export default defineConfig({
         icon: 'https://nyaa.si/static/favicon.png',
         namespace: 'https://github.com/MrYuto',
         match: ['https://nyaa.si/view/*'],
+        downloadURL:
+          'https://github.com/MrYuto/AniyaaList/raw/main/dist/aniyaa-list.user.js',
+        updateURL:
+          'https://github.com/MrYuto/AniyaaList/raw/main/dist/aniyaa-list.user.js',
       },
       build: {
         externalGlobals: {

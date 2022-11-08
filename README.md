@@ -9,7 +9,7 @@ AniyaaList still in early development and it only run on torrent view page for n
 ## Installation
 
 1. Get Tampermonkey userscript manager for your browser. ([Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) | [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/))
-2. Install script from here.
+2. Install script from [here](https://github.com/MrYuto/AniyaaList/raw/main/dist/aniyaa-list.user.js).
 
 ## Features
 
