@@ -1,0 +1,5 @@
+@use '../abstracts' as *;
+
+#anilist-widget-root {
+  @include text-style('body-lg-normal');
+}

@@ -1,0 +1,18 @@
+@use 'sass:meta';
+@use 'sass:color';
+@use '../abstracts/' as *;
+
+:root {
+  @include vars-from($spacing-sizes, $prefix: 'size');
+
+  // Make css variable for color tokens
+  @each $name, $theme in $themes {
+    @if ($name == 'default') {
+      @include vars-from($theme);
+    } @else {
+      &.#{$name} {
+        @include vars-from($theme);
+      }
+    }
+  }
+}

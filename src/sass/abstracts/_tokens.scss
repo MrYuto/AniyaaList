@@ -1,0 +1,81 @@
+@use 'sass:map';
+@use 'sass:color';
+@use './functions' as *;
+@use './variables' as *;
+
+$default-theme-colors: create-tokens($colors, $default-theme-colors-aliases);
+
+$default-theme: (
+  'accent-900-transparent':
+    color.change(map-get($default-theme-colors, 'accent-900'), $alpha: 0.8),
+  'scrollbar-color': var(--neutral-2-700),
+  'nyaa-link-color': var(--primary-400),
+  'nyaa-link-hover-color': var(--primary-500),
+  'nyaa-link-active-color': var(--primary-600),
+  'nyaa-link-visited-color': var(--primary-500),
+  'nyaa-link-visited-hover-color': var(--primary-400),
+  'nyaa-btn-default-color': var(--neutral-2-400),
+  'nyaa-btn-default-bg-color': var(--accent-500),
+  'nyaa-btn-default-border-color': var(--primary-700),
+  'nyaa-btn-default-hover-bg-color': var(--accent-600),
+  'nyaa-btn-default-active-bg-color': var(--accent-700),
+  'nyaa-btn-primary-bg-color': var(--primary-400),
+  'nyaa-btn-primary-hover-bg-color': var(--primary-500),
+  'nyaa-btn-primary-active-bg-color': var(--primary-600),
+  'nyaa-dropdown-toggle-active-color': var(--neutral-2-400),
+  'nyaa-dropdown-toggle-active-bg-color': var(--accent-700),
+  'nyaa-dropdown-menu-bg-color': var(--accent-500),
+  'nyaa-dropdown-menu-item-color': var(--neutral-2-100),
+  'nyaa-dropdown-menu-item-hover-color': var(--neutral-2-100),
+  'nyaa-dropdown-menu-item-hover-bg-color': var(--primary-500),
+  'nyaa-dropdown-menu-selected-item-bg-color': var(--primary-400),
+  'nyaa-form-control-color': var(--neutral-2-100),
+  'nyaa-form-control-bg-color': var(--accent-500),
+  'nyaa-form-control-focus-bg-color': var(--accent-800),
+  'nyaa-form-control-border-color': var(--primary-700),
+  'nyaa-form-control-focus-border-color': var(--primary-400),
+  'nyaa-form-control-placeholder-color': var(--neutral-2-400),
+  'nyaa-code-color': var(--neutral-2-300),
+  'nyaa-code-bg-color': var(--accent-700),
+  'nyaa-navbar-bg-color': var(--accent-500),
+  'nyaa-navbar-link-color': var(--neutral-2-100),
+  'nyaa-navbar-link-hover-color': var(--neutral-2-300),
+  'nyaa-body-color': var(--neutral-2-300),
+  'nyaa-body-bg-color': var(--accent-800),
+  'nyaa-panel-bg-color': var(--accent-600),
+  'nyaa-panel-heading-color': var(--neutral-2-100),
+  'nyaa-panel-heading-bg-color': var(--accent-500),
+  'nyaa-panel-heading-border-color': var(--accent-400),
+  'nyaa-panel-heading-success-color': var(--neutral-2-50),
+  'nyaa-panel-heading-success-bg-color': var(--primary-500),
+  'nyaa-panel-heading-danger-color': var(--neutral-2-50),
+  'nyaa-panel-heading-danger-bg-color': var(--error-500),
+  'nyaa-panel-footer-bg-color': var(--accent-700),
+  'nyaa-panel-footer-border-color': var(--accent-400),
+  'nyaa-comment-panel-bg-color': var(--accent-700),
+  'modal-overlay-bg-color': var(--accent-900-transparent),
+  'modal-overlay-container-bg-color': var(--accent-900),
+  'anilist-widget-color': var(--neutral-2-50),
+  'anilist-widget-bg-color': var(--accent-600),
+  'anilist-widget-error-bg-color': var(--error-400),
+  'media-background-image-overlay-bg-color':
+    linear-gradient(45deg, var(--accent-600) 24%, transparent 172%),
+  'media-cover-image-overlay-bg-color': var(--accent-900-transparent),
+  'media-stats-bg-color': var(--accent-900-transparent),
+  'media-stats-item-color': var(--neutral-2-100),
+  'media-title': var(--neutral-2-50),
+  'media-details-item-color': var(--neutral-2-100),
+  'media-genres-item-color': var(--neutral-2-200),
+  'media-genres-item-hover-color': var(--neutral-2-50),
+  'media-genres-item-hover-bg-color': var(--primary-400),
+  'media-genres-item-border-color': var(--accent-400),
+  'media-description-content-color': var(--neutral-2-300),
+  'media-description-overlay-bg-color':
+    linear-gradient(0deg, var(--accent-600) 5%, 20%, transparent),
+);
+
+$default-theme: map.merge($default-theme-colors, $default-theme);
+
+$themes: (
+  'default': $default-theme,
+);

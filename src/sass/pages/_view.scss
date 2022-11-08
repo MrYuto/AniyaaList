@@ -1,0 +1,48 @@
+.panel {
+  overflow: hidden;
+  background-color: var(--nyaa-panel-bg-color);
+  border: none !important;
+  border-radius: var(--size-base);
+
+  &.panel-default {
+    > .panel-heading {
+      background-color: var(--nyaa-panel-heading-bg-color);
+      border-color: var(--nyaa-panel-heading-border-color);
+
+      &:not(a) > .panel-title {
+        color: var(--nyaa-panel-heading-color);
+      }
+    }
+  }
+
+  &.panel-success {
+    > .panel-heading {
+      background-color: var(--nyaa-panel-heading-success-bg-color) !important;
+      border: none;
+
+      .panel-title {
+        color: var(--nyaa-panel-heading-success-color);
+      }
+    }
+  }
+
+  &.panel-danger {
+    > .panel-heading {
+      background-color: var(--nyaa-panel-heading-danger-bg-color) !important;
+      border: none;
+
+      .panel-title {
+        color: var(--nyaa-panel-heading-danger-color);
+      }
+    }
+  }
+
+  .panel-footer {
+    background-color: var(--nyaa-panel-footer-bg-color);
+    border-color: var(--nyaa-panel-footer-border-color);
+  }
+
+  .comment-panel {
+    background-color: var(--nyaa-comment-panel-bg-color);
+  }
+}

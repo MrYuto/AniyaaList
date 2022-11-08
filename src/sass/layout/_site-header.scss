@@ -1,0 +1,18 @@
+.navbar-form .nav-filter:first-of-type .btn {
+  border: 1px solid var(--nyaa-btn-default-border-color) !important;
+}
+
+.navbar {
+  background-color: var(--nyaa-navbar-bg-color);
+  border: none;
+
+  a {
+    color: var(--nyaa-navbar-link-color) !important;
+
+    &:hover {
+      color: var(--nyaa-navbar-link-hover-color) !important;
+    }
+  }
+}
+
+

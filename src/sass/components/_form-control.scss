@@ -1,0 +1,16 @@
+.form-control {
+  color: var(--nyaa-form-control-color);
+  background-color: var(--nyaa-form-control-bg-color);
+  border: 1px solid var(--nyaa-form-control-border-color);
+  transition: background-color ease-in-out 150ms, border-color ease-in-out 150ms,
+    box-shadow ease-in-out 150ms;
+
+  &::placeholder {
+    color: var(--nyaa-form-control-placeholder-color);
+  }
+
+  &:focus {
+    background-color: var(--nyaa-form-control-focus-bg-color);
+    border-color: var(--nyaa-form-control-focus-border-color);
+  }
+}

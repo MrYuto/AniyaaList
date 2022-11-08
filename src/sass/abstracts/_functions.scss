@@ -1,0 +1,81 @@
+@use 'sass:string';
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+@use './variables' as *;
+
+@function var-or($var, $or: null) {
+  @if $or {
+    $var: var(--#{$var}, $or);
+  } @else {
+    $var: var(--#{$var});
+  }
+
+  @return $var;
+}
+
+@function split-string($string, $separator) {
+  $result: ();
+  $index: string.index($string, $separator);
+
+  @while $index != null {
+    $item: string.slice($string, 1, $index - 1);
+    $result: list.append($result, $item);
+    $string: string.slice($string, $index + 1);
+    $index: string.index($string, $separator);
+  }
+
+  $result: list.append($result, $string);
+
+  @return $result;
+}
+
+@function create-tokens($values, $aliases: (), $use-var: false, $parent: null) {
+  $tokens: ();
+
+  @each $name, $value in $values {
+    $name: if($parent, '#{$parent}-#{$name}', $name);
+    $alias: map.get($aliases, $name);
+
+    @if $alias != null {
+      $name: $alias;
+    }
+
+    @if meta.type-of($value) == 'map' {
+      $tokens: map.merge(
+        $tokens,
+        create-tokens($value, $aliases, $use-var, $name)
+      );
+    } @else {
+      $value: if($use-var, var(--#{$name}), $value);
+
+      $tokens: map.set($tokens, $name, $value);
+    }
+  }
+
+  @return $tokens;
+}
+
+@function get-color($tokens, $name: null, $variant: null) {
+  $colors: $colors;
+
+  @if (meta.type-of($tokens) == 'map') {
+    $colors: $tokens;
+  } @else {
+    $name: $tokens;
+  }
+
+  $color: map.get($colors, $name);
+
+  @if $variant {
+    @if (meta.type-of($color) != 'map') {
+      @error 'There is no variant for the color';
+    }
+
+    $color: map.get($color, $variant);
+  } @else if (meta.type-of($color) != 'color') {
+    @error $color 'is not a color';
+  }
+
+  @return $color;
+}

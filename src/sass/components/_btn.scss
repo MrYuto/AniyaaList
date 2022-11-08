@@ -1,0 +1,33 @@
+.btn {
+  background-color: transparent;
+  border: none;
+  transition: background-color ease-in-out 150ms;
+
+  &.btn-default {
+    color: var(--nyaa-btn-default-color);
+    background-color: var(--nyaa-btn-default-bg-color);
+    border: 1px solid var(--nyaa-btn-default-border-color);
+
+    &:hover,
+    &:focus {
+      background-color: var(--nyaa-btn-default-hover-bg-color);
+    }
+
+    &:active {
+      background-color: var(--nyaa-btn-default-active-bg-color);
+    }
+  }
+
+  &.btn-primary {
+    background-color: var(--nyaa-btn-primary-bg-color);
+
+    &:hover,
+    &:focus {
+      background-color: var(--nyaa-btn-primary-hover-bg-color);
+    }
+
+    &:active {
+      background-color: var(--nyaa-btn-primary-active-bg-color);
+    }
+  }
+}

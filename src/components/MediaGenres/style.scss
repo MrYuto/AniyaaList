@@ -1,0 +1,36 @@
+@use '../../sass/abstracts/' as *;
+
+.MediaGenres {
+  display: flex;
+  gap: var(--size-base);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  &__item {
+    @include text-style('label-base-normal');
+
+    padding: var(--size-xs) var(--size-base);
+    color: var(--media-genres-item-color);
+    border: 1px solid var(--media-genres-item-border-color);
+    border-radius: var(--size-xl);
+    cursor: pointer;
+    transition: color 192ms ease, background-color 160ms ease;
+
+    &:hover,
+    &:focus-within {
+      color: var(--media-genres-item-hover-color);
+      background-color: var(--media-genres-item-hover-bg-color);
+    }
+  }
+
+  &__link,
+  &__link:hover,
+  &__link:focus,
+  &__link:visited,
+  &__link:visited:hover {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+  }
+}

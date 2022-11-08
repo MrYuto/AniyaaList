@@ -1,0 +1,46 @@
+@use 'sass:map';
+@use '../../sass/abstracts/' as *;
+
+$media-description-content-line-height: 24px;
+$media-description-content-max-height: 3 *
+  $media-description-content-line-height + 12px;
+$media-description-content-max-width: 512px;
+
+.MediaDescription {
+  $self: &;
+  $content-right-padding: var(--size-md);
+
+  &__content {
+    @include text-style('body-base-normal');
+
+    max-width: $media-description-content-max-width;
+    max-height: $media-description-content-max-height;
+    padding-right: $content-right-padding;
+    margin: 0;
+    overflow: hidden;
+    color: var(--media-description-content-color);
+
+    &:hover {
+      padding-right: var(--size-base);
+      overflow-y: auto;
+    }
+  }
+
+  &--show-overlay {
+    position: relative;
+
+    #{$self}__content {
+      padding-bottom: var(--size-md);
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      inset: 0;
+      right: $content-right-padding;
+      background: var(--media-description-overlay-bg-color);
+      pointer-events: none;
+    }
+  }
+}

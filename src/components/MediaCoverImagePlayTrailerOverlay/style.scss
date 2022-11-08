@@ -1,0 +1,32 @@
+.MediaCoverImagePlayTrailerOverlay {
+  $self: &;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--media-cover-image-overlay-bg-color);
+  border-radius: var(--size-base);
+  opacity: 0;
+  backdrop-filter: blur(var(--size-xs));
+  cursor: pointer;
+  transition: opacity 256ms ease-in-out;
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0) rotate(-90deg);
+    transition: transform 256ms ease-out;
+  }
+
+  &--show {
+    opacity: 1;
+
+    #{$self}__icon {
+      transform: scale(1) rotate(0deg);
+    }
+  }
+}

@@ -1,0 +1,137 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:string';
+@use './tokens' as *;
+@use './variables' as *;
+@use './functions' as *;
+
+@mixin mq($for: 'desktop') {
+  $breakpoint: map.get($breakpoints, $for);
+
+  @media screen and (if($for == 'mobile', max-width, min-width): $breakpoint) {
+    @content;
+  }
+}
+
+@mixin vars-from($map, $prefix: null, $suffix: null) {
+  @each $name, $value in $map {
+    $name: if($prefix, #{$prefix}-#{$name}, $name);
+    $name: if($suffix, #{$name}-#{$suffix}, $name);
+
+    --#{$name}: #{$value};
+  }
+}
+
+@mixin utilities-from(
+  $map,
+  $property: null,
+  $prefix: null,
+  $suffix: null,
+  $selector: null,
+  $use-var: true,
+  $no-value: false,
+  $use-value-name: false
+) {
+  $pre-len: list.length($prefix);
+  $suff-len: list.length($suffix);
+
+  @for $i from 1 to list.length($property) + 1 {
+    $prop: list.nth($property, $i);
+
+    @each $name, $value in $map {
+      @if ($prop != null) {
+        $pre: if($i <= $pre-len, list.nth($prefix, $i), null);
+        $suff: if($i <= $suff-len, list.nth($suffix, $i), null);
+
+        $var: $name;
+        $name: if($pre, #{$pre}-#{$name}, $name);
+        $name: if($suff, #{$name}-#{$suff}, $name);
+        $var: if(not $use-value-name, $name, $var);
+
+        $name: if($selector, #{$name}#{$selector}, $name);
+        $var: if($no-value, var(--#{$var}), var(--#{$var}, #{$value}));
+        $value: if($use-var, $var, #{$value});
+
+        .#{$name} {
+          #{$prop}: $value;
+        }
+      } @else {
+        @content ($name, $value);
+      }
+    }
+  }
+}
+
+@mixin text-weight($weight: null, $name: 'default') {
+  @if $weight == null {
+    $args: split-string($name, '-');
+
+    @if list.length($args) != 2 {
+      @error 'Type error';
+    }
+
+    $name: list.nth($args, 1);
+    $weight: list.nth($args, 2);
+  }
+
+  $font-weight: map.get($text-styles, $name, 'weights', $weight);
+
+  font-weight: var-or(#{$name}-#{$weight}-weight, $font-weight);
+}
+
+@mixin text-size($size: null, $name: 'default') {
+  @if $size == null {
+    $args: split-string($name, '-');
+
+    @if list.length($args) != 2 {
+      @error 'Type error';
+    }
+
+    $name: list.nth($args, 1);
+    $size: list.nth($args, 2);
+  }
+
+  $font-size: map.get($text-styles, $name, 'sizes', $size);
+  $line-height: map.get($text-styles, $name, 'line-heights', $size);
+  $letter-spacing: map.get($text-styles, $name, 'letter-spacings', $size);
+
+  font-size: var-or(#{$name}-#{$size}-size, $font-size);
+  line-height: var-or(#{$name}-#{$size}-line-height, $line-height);
+  letter-spacing: var-or(#{$name}-#{$size}-letter-spacing, $letter-spacing);
+}
+
+@mixin text-font($name: 'default') {
+  $font-family: map.get($text-styles, $name, 'font-family');
+
+  font-family: var-or(#{$name}-font-family, $font-family);
+}
+
+@mixin text-style($name: 'default', $size: null, $weight: null) {
+  @if $size == null {
+    $args: split-string($name, '-');
+
+    @if list.length($args) != 3 {
+      @error 'Type error';
+    }
+
+    $name: list.nth($args, 1);
+    $size: list.nth($args, 2);
+    $weight: list.nth($args, 3);
+
+    $name: if($name != '', $name, 'default');
+  }
+
+  @if $weight != null {
+    @include text-weight($weight, $name);
+  }
+
+  @include text-size($size, $name);
+  @include text-font($name);
+}
+
+@mixin reset-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}

@@ -1,0 +1,30 @@
+$modal-container-max-width: 75vw;
+
+.Modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--size-4xl);
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    max-width: $modal-container-max-width;
+    padding: var(--size-lg);
+    background-color: var(--modal-overlay-container-bg-color);
+    border-radius: var(--size-md);
+    transform: translateY(-25%);
+    opacity: 0;
+    transition: opacity 172ms ease-in-out, transform 256ms ease-out;
+  }
+
+  &--show &__container {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

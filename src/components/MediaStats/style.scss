@@ -1,0 +1,34 @@
+@use '../../sass/abstracts/' as *;
+
+.MediaStats {
+  width: fit-content;
+  padding: var(--size-sm) var(--size-base);
+  margin: 0 auto;
+  border-radius: var(--size-base);
+  background-color: var(--media-stats-bg-color);
+  backdrop-filter: blur(var(--size-xs));
+
+  &__list {
+    @include text-style('label-lg-normal');
+
+    display: flex;
+    align-items: center;
+    gap: var(--size-base);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: var(--size-sm);
+    color: var(--media-stats-item-color);
+  }
+
+  &__item-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,58 @@
+@use '../abstracts/' as *;
+@forward 'fonts';
+@forward 'typography';
+@forward 'root';
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-color);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: var(--size-xl);
+}
+
+body,
+body.dark {
+  @include text-font('body');
+
+  color: var(--nyaa-body-color);
+  background-color: var(--nyaa-body-bg-color);
+}
+
+a {
+  color: var(--nyaa-link-color);
+
+  &:visited {
+    color: var(--nyaa-link-visited-color);
+
+    &:hover,
+    &:focus {
+      color: var(--nyaa-link-visited-hover-color);
+    }
+
+    &:active {
+      color: var(--nyaa-link-active-color);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--nyaa-link-hover-color);
+  }
+
+  &:active {
+    color: var(--nyaa-link-active-color);
+  }
+}
+
+kbd {
+  color: var(--nyaa-code-color);
+  background-color: var(--nyaa-code-bg-color) !important;
+}

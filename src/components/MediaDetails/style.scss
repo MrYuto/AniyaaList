@@ -1,0 +1,22 @@
+@use '../../sass/abstracts/' as *;
+
+.MediaDetails {
+  &__row {
+    display: flex;
+    gap: var(--size-sm);
+
+    &:first-child {
+      margin-bottom: var(--size-base);
+    }
+  }
+
+  &__item {
+    @include text-style('label-base-normal');
+    color: var(--media-details-item-color);
+
+    &:not(:first-child)::before {
+      content: '•';
+      margin-right: var(--size-sm);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.AnilistWidget {
+  display: flex;
+  padding: var(--size-lg);
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  color: var(--anilist-widget-color);
+  background-color: var(--anilist-widget-bg-color);
+  border-radius: var(--size-base);
+
+  &--loading,
+  &--error {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--error {
+    background-color: var(--anilist-widget-error-bg-color);
+  }
+}
