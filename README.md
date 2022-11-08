@@ -2,6 +2,8 @@
 
 A userscript that brings a new way to experience Nyaa.
 
+![A screenshot from Nyaa torrent view page with AniyaaList](https://us-east-1.tixte.net/uploads/mryuto.tixte.co/chrome_0KFXb1ZnLs.gif)
+
 ## Notice
 
 AniyaaList still in early development and it only run on torrent view page for now.
