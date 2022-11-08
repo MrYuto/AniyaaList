@@ -2,7 +2,7 @@
 
 A userscript that brings a new way to experience Nyaa.
 
-![A screenshot from Nyaa torrent view page with AniyaaList](https://us-east-1.tixte.net/uploads/mryuto.tixte.co/ezgif.com-gif-maker.gif)
+![A screenshot from Nyaa torrent view page with AniyaaList](https://us-east-1.tixte.net/uploads/mryuto.tixte.co/wHCMNQzff3.png)
 
 ## Notice
 
