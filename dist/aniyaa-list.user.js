@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         AniyaaList
-// @namespace    MrYuto
+// @namespace    https://github.com/MrYuto
 // @version      0.0.1
 // @author       Yuto Liyosa
 // @description  A simple Anilist interaction widget for Nyaa
 // @icon         https://nyaa.si/static/favicon.png
+// @downloadURL  https://github.com/MrYuto/AniyaaList/raw/main/dist/aniyaa-list.user.js
+// @updateURL    https://github.com/MrYuto/AniyaaList/raw/main/dist/aniyaa-list.user.js
 // @match        https://nyaa.si/view/*
 // @require      https://cdn.jsdelivr.net/npm/preact@10.11.2/dist/preact.min.js
 // ==/UserScript==
